@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AmirScripts — Persuasive email copywriting for clothing, streetwear, and lifestyle brands. Words that turn attention into action.">
+<meta name="keywords" content="email copywriter, copywriting services, streetwear copywriter, email marketing, AmirScripts">
+<title>AmirScripts — Words That Turn Attention Into Action</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #090b0f;
+    --bg2: #0d1017;
+    --bg3: #111520;
+    --surface: #141824;
+    --surface2: #1c2235;
+    --border: rgba(255,255,255,0.06);
+    --border2: rgba(255,255,255,0.1);
+    --accent: #e63946;
+    --accent2: #ff6b6b;
+    --gold: #c9a84c;
+    --text: #e8eaf2;
+    --text2: #9ba3b8;
+    --text3: #5c6480;
+    --glow: rgba(230,57,70,0.15);
+    --font-display: 'Cormorant Garamond', serif;
+    --font-ui: 'Syne', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-ui);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* === NOISE OVERLAY === */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ===========================
+     NAV
+  =========================== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(9,11,15,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2px;
+  }
+  .nav-cta:hover { background: var(--accent2) !important; color: #fff !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: rgba(9,11,15,0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 1.5rem 2rem;
+      gap: 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 0.9rem; }
+  }
+
+  /* ===========================
+     HERO
+  =========================== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 2rem 4rem;
+  }
+
+  /* Animated background grid */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(230,57,70,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(230,57,70,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridSlide 20s linear infinite;
+  }
+
+  @keyframes gridSlide {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(60px); }
+  }
+
+  /* Red glow orb */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 20%; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(230,57,70,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 100px;
+    padding: 0.4rem 1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    animation: fadeUp 0.9s 0.1s ease both;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.9s 0.2s ease both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    position: relative;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text2);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    animation: fadeUp 0.9s 0.3s ease both;
+    line-height: 1.7;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.9s 0.4s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.1);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover::after { opacity: 1; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(230,57,70,0.35); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    border: 1px solid var(--border2);
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.9s 0.5s ease both;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--text3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+  }
+
+  /* ===========================
+     SECTIONS COMMON
+  =========================== */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    color: var(--text2);
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* ===========================
+     SERVICES
+  =========================== */
+  #services { background: var(--bg2); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: rgba(230,57,70,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .service-card:hover::before { opacity: 1; }
+
+  .service-card.featured {
+    border-color: rgba(230,57,70,0.4);
+    background: linear-gradient(135deg, var(--surface), var(--surface2));
+  }
+  .service-card.featured::before { opacity: 1; }
+
+  .service-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    align-self: flex-start;
+  }
+
+  .service-price {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .service-price span {
+    font-size: 1.2rem;
+    color: var(--text2);
+    font-family: var(--font-ui);
+    font-weight: 400;
+  }
+
+  .service-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text2);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-features {
+    list-style: none;
+    flex: 1;
+    margin-bottom: 2rem;
+  }
+  .service-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    color: var(--text2);
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+  }
+  .service-features li::before {
+    content: '→';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.05em;
+  }
+
+  /* ===========================
+     PORTFOLIO
+  =========================== */
+  #portfolio { background: var(--bg); }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .portfolio-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .portfolio-card:hover {
+    border-color: rgba(230,57,70,0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+
+  .portfolio-card-header {
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .portfolio-type {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(230,57,70,0.1);
+    border: 1px solid rgba(230,57,70,0.2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .portfolio-brand {
+    font-size: 0.7rem;
+    color: var(--text3);
+    font-family: var(--font-mono);
+    text-align: right;
+  }
+
+  .portfolio-card-body { padding: 1.5rem; flex: 1; }
+
+  .portfolio-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .portfolio-desc {
+    font-size: 0.85rem;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .portfolio-preview {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1rem 1.2rem;
+    font-size: 0.82rem;
+    color: var(--text2);
+    line-height: 1.65;
+    position: relative;
+    overflow: hidden;
+    max-height: 130px;
+  }
+
+  .portfolio-preview::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40px;
+    background: linear-gradient(transparent, var(--bg3));
+  }
+
+  .portfolio-subject {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  /* ===========================
+     ABOUT
+  =========================== */
+  #about { background: var(--bg2); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  .about-visual {
+    position: relative;
+    aspect-ratio: 1;
+    max-width: 400px;
+  }
+
+  .about-frame {
+    width: 100%;
+    height: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(230,57,70,0.15) 0%, transparent 60%),
+      radial-gradient(circle at 70% 70%, rgba(201,168,76,0.08) 0%, transparent 60%);
+  }
+
+  .about-monogram {
+    font-family: var(--font-display);
+    font-size: 8rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .about-initials {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text);
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .about-initials span { color: var(--accent); }
+
+  .about-frame-decor {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    width: 60px; height: 60px;
+    border-top: 2px solid var(--accent);
+    border-right: 2px solid var(--accent);
+    opacity: 0.4;
+  }
+  .about-frame-decor2 {
+    position: absolute;
+    bottom: 1rem; left: 1rem;
+    width: 60px; height: 60px;
+    border-bottom: 2px solid var(--accent);
+    border-left: 2px solid var(--accent);
+    opacity: 0.4;
+  }
+
+  .about-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .skill-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.8rem;
+    border-radius: 2px;
+  }
+
+  /* ===========================
+     FAQ
+  =========================== */
+  #faq { background: var(--bg); }
+
+  .faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 3rem;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    padding: 1.4rem 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: color 0.2s;
+  }
+
+  .faq-question:hover { color: var(--accent); }
+
+  .faq-icon {
+    width: 22px; height: 22px;
+    border: 1px solid var(--border2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+    line-height: 1;
+    color: var(--accent);
+    transition: all 0.3s;
+  }
+
+  .faq-item.open .faq-icon {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    color: var(--text2);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .faq-answer-inner { padding: 0 0 1.4rem; }
+
+  .faq-item.open .faq-answer { max-height: 200px; }
+
+  /* ===========================
+     CONTACT
+  =========================== */
+  #contact { background: var(--bg2); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  .contact-info-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+  .contact-info-text {
+    color: var(--text2);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: var(--text2);
+  }
+  .contact-detail-icon {
+    width: 36px; height: 36px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .contact-detail a { color: var(--accent); text-decoration: none; }
+  .contact-detail a:hover { text-decoration: underline; }
+
+  .contact-form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .form-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text2);
+  }
+
+  .form-input, .form-textarea, .form-select {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.8rem 1rem;
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: var(--accent);
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--text3); }
+  .form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+  .form-select option { background: var(--bg3); }
+
+  .form-submit {
+    width: 100%;
+    padding: 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    justify-content: center;
+  }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 1.5rem;
+    color: #4caf50;
+    font-size: 0.9rem;
+    background: rgba(76,175,80,0.08);
+    border: 1px solid rgba(76,175,80,0.2);
+    border-radius: 3px;
+  }
+
+  .form-error {
+    color: var(--accent);
+    font-size: 0.75rem;
+    display: none;
+    margin-top: 0.2rem;
+  }
+
+  /* ===========================
+     FOOTER
+  =========================== */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--accent); }
+
+  .footer-email {
+    font-size: 0.82rem;
+    color: var(--text3);
+    margin-top: 0.3rem;
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .social-link {
+    width: 40px; height: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+  .social-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: var(--text3);
+    width: 100%;
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    margin-top: 1.5rem;
+  }
+
+  /* ===========================
+     SCROLL REVEAL
+  =========================== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===========================
+     DIVIDER
+  =========================== */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .section-divider::before, .section-divider::after {
+    content: '';
+    height: 1px;
+    background: var(--border);
+    flex: 1;
+  }
+  .section-divider::before { max-width: 40px; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Amir<span>Scripts</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">✦ Email Copywriter for Streetwear &amp; Lifestyle Brands</div>
+    <h1>Words That Turn<br><em>Attention</em> Into Action</h1>
+    <p class="hero-sub">I help businesses attract customers and increase sales through persuasive copywriting that speaks directly to your audience.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Contact Me →</a>
+      <a href="#portfolio" class="btn-secondary">View My Work</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">5+</span>
+        <span class="stat-label">Brands Worked With</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">$20</span>
+        <span class="stat-label">Starting From</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Custom Copy</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">48h</span>
+        <span class="stat-label">Fast Delivery</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-divider"><span class="section-tag">Services</span></div>
+      <h2 class="section-title">Simple, Transparent Pricing</h2>
+      <p class="section-sub">No complicated packages. Pick what fits your needs and get custom copy written for your business.</p>
+    </div>
+    <div class="services-grid">
+      <!-- Starter -->
+      <div class="service-card reveal">
+        <span class="service-price">$20 <span>/ email</span></span>
+        <p class="service-name">Starter Package</p>
+        <ul class="service-features">
+          <li>1 fully custom marketing email</li>
+          <li>Written to match your brand voice</li>
+          <li>Attention-grabbing subject line</li>
+          <li>Clear, conversion-focused CTA</li>
+          <li>Revisions included</li>
+          <li>Delivered within 48 hours</li>
+        </ul>
+        <a href="https://mail.google.com/mail/?view=cm&to=amirscripts@gmail.com&su=Order: Starter Package — 1 Email ($20)" target="_blank" class="btn-primary">Order Now →</a>
+      </div>
+      <!-- Growth -->
+      <div class="service-card featured reveal">
+        <span class="service-badge">Best Value</span>
+        <span class="service-price">$50 <span>/ 3 emails</span></span>
+        <p class="service-name">Growth Package</p>
+        <ul class="service-features">
+          <li>3 fully custom marketing emails</li>
+          <li>Sequence strategy included</li>
+          <li>Tailored to your audience's pain points</li>
+          <li>Subject lines optimized for open rates</li>
+          <li>Strong hooks &amp; persuasive CTAs</li>
+          <li>Revisions included on all 3 emails</li>
+          <li>Delivered within a few days</li>
+        </ul>
+        <a href="https://mail.google.com/mail/?view=cm&to=amirscripts@gmail.com&su=Order: Growth Package — 3 Emails ($50)" target="_blank" class="btn-primary">Order Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-divider"><span class="section-tag">Portfolio</span></div>
+      <h2 class="section-title">Real Copy, Real Brands</h2>
+      <p class="section-sub">A selection of email campaigns written for clothing brands, streetwear labels, and lifestyle businesses.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <!-- Card 1: Run It London -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-card-header">
+          <span class="portfolio-type">Streetwear / Moto</span>
+          <span class="portfolio-brand">Run It London</span>
+        </div>
+        <div class="portfolio-card-body">
+          <h3 class="portfolio-title">Brand Identity Email</h3>
+          <p class="portfolio-desc">A cold email for a London moto streetwear brand, hitting riders who feel like they blend in with every other brand on the market.</p>
+          <div class="portfolio-preview">
+            <span class="portfolio-subject">Subject: Most riders are wearing the wrong brand</span>
+            You buy moto streetwear to feel part of something real. But then it arrives — and the quality doesn't match the price. The design looks like every other rider's fit. Nothing unique. Nothing that makes you stand out…
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: SpeedX Industry -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-card-header">
+          <span class="portfolio-type">Streetwear</span>
+          <span class="portfolio-brand">SpeedX Industry</span>
+        </div>
+        <div class="portfolio-card-body">
+          <h3 class="portfolio-title">Quality Agitation Email</h3>
+          <p class="portfolio-desc">A hard-hitting promo email for a hoodie brand that exposes fast-fashion quality problems and positions SpeedX as the alternative.</p>
+          <div class="portfolio-preview">
+            <span class="portfolio-subject">Subject: Why most hoodies fall apart after 3 washes</span>
+            You order from a brand that looks legit — clean photos, nice branding, good hype. But the second it arrives? Thin fabric. Loose stitching. Fades after 2 washes and loses its shape by the third…
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Ragner WholSale -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-card-header">
+          <span class="portfolio-type">Clothing Brand</span>
+          <span class="portfolio-brand">Ragner WholSale</span>
+        </div>
+        <div class="portfolio-card-body">
+          <h3 class="portfolio-title">Multi-Category Promo Email</h3>
+          <p class="portfolio-desc">A promotional email for a wholesale clothing brand, covering full-range products from tees to outerwear while attacking the quality gap in the market.</p>
+          <div class="portfolio-preview">
+            <span class="portfolio-subject">Subject: Why most clothing brands fall apart after 3 washes</span>
+            You've seen it before. You order from a brand that looks legit — clean photos, nice branding, good hype. But the second it arrives? Thin fabric. Loose stitching. Your tee fades, your joggers lose shape…
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Abandoned Cart -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-card-header">
+          <span class="portfolio-type">Abandoned Cart</span>
+          <span class="portfolio-brand">Streetwear / E-comm</span>
+        </div>
+        <div class="portfolio-card-body">
+          <h3 class="portfolio-title">Cart Recovery Email</h3>
+          <p class="portfolio-desc">A recovery email that addresses hesitation around sizing, quality, and trust — then closes with urgency before the item is gone.</p>
+          <div class="portfolio-preview">
+            <span class="portfolio-subject">Subject: You left something behind.</span>
+            Looks like you left your hoodie in the cart. Which makes sense. Finding a hoodie that actually stays comfortable and keeps its shape isn't easy. Most look great at first… then lose their fit after a few washes.
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Study Focus App -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-card-header">
+          <span class="portfolio-type">Productivity / App</span>
+          <span class="portfolio-brand">Study Focus App</span>
+        </div>
+        <div class="portfolio-card-body">
+          <h3 class="portfolio-title">App Download Email</h3>
+          <p class="portfolio-desc">A relatable email targeting students distracted by their phones, hitting the pain point hard before presenting the solution.</p>
+          <div class="portfolio-preview">
+            <span class="portfolio-subject">Subject: You open your phone for 5 minutes…</span>
+            You open your phone for 5 minutes… And suddenly, 2 hours are gone. One notification. One video. Then another. Now your study session is ruined. Sound familiar?
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Multi-Campaign Portfolio -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-card-header">
+          <span class="portfolio-type">Multi-Industry</span>
+          <span class="portfolio-brand">Full Portfolio</span>
+        </div>
+        <div class="portfolio-card-body">
+          <h3 class="portfolio-title">5-Campaign Email Portfolio</h3>
+          <p class="portfolio-desc">Full portfolio including abandoned cart flows, win-back sequences, product launch emails, and promotional campaigns across clothing and SaaS niches.</p>
+          <div class="portfolio-preview">
+            <span class="portfolio-subject">Includes: Welcome flows · Cart recovery · Product launch · Re-engagement</span>
+            Emails that feel human and get results. No fluff, no complicated language. Just clear, direct copy that makes the reader feel understood and moves them to act — across every industry.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="about-visual">
+          <div class="about-frame">
+            <div class="about-monogram">AS</div>
+            <div class="about-initials">Amir<span>.</span></div>
+            <div class="about-frame-decor"></div>
+            <div class="about-frame-decor2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="section-divider"><span class="section-tag">About</span></div>
+        <h2 class="section-title">About AmirScripts</h2>
+        <p style="color: var(--text2); line-height: 1.8; margin-bottom: 1.5rem; font-size: 0.95rem;">
+          I specialize in writing persuasive copy that helps businesses communicate their value, attract customers, and increase conversions.
+        </p>
+        <p style="color: var(--text2); line-height: 1.8; margin-bottom: 1.5rem; font-size: 0.95rem;">
+          My emails don't just sound good — they're built around what your customer actually feels. I write copy that agitates the right problems, positions your brand as the answer, and gets people to act.
+        </p>
+        <p style="color: var(--text2); line-height: 1.8; margin-bottom: 2rem; font-size: 0.95rem;">
+          From streetwear and clothing brands to productivity products — if you have an audience, I'll write the words that move them.
+        </p>
+        <div class="about-skills">
+          <span class="skill-tag">Email Marketing</span>
+          <span class="skill-tag">Abandoned Cart</span>
+          <span class="skill-tag">Product Launches</span>
+          <span class="skill-tag">Win-Back Flows</span>
+          <span class="skill-tag">Subject Lines</span>
+          <span class="skill-tag">Streetwear Brands</span>
+          <span class="skill-tag">Lifestyle Brands</span>
+          <span class="skill-tag">PAS Copywriting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="reveal" style="text-align: center;">
+      <div class="section-divider"><span class="section-tag">FAQ</span></div>
+      <h2 class="section-title">Common Questions</h2>
+      <p class="section-sub" style="margin: 0 auto 0;">Everything you need to know before working together.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          What industries do you work with?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">I can write copy for most industries and online businesses. My main focus is clothing, streetwear, and lifestyle brands — but I've also written for productivity apps and student-focused products. If you have an audience and a product, I can write emails that connect.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          How long does delivery take?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Typically within 48 hours for a single email. For the Growth Package (3 emails), delivery is usually within a few days depending on project complexity. I'll always confirm the timeline before we start.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          Can I request revisions?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. Revisions are included with every package. If the copy isn't quite right — tone, angle, length — just let me know and I'll adjust it until it fits your brand.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          How do I place an order?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Just send me an email at amirscripts@gmail.com or use the contact form below. Tell me a bit about your brand, what you need, and I'll get back to you quickly to confirm details and get started.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          Do you write custom copy for my specific brand?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes — 100% custom. Every email is written specifically for your brand, your audience, and your goals. No templates, no recycled copy. What you get is original work built around what makes your brand unique.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          What information do you need to get started?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">I'll need a brief overview of your brand, your target audience, the goal of the email (promo, cart recovery, launch, etc.), and any brand voice preferences. The more context you give me, the better the copy will be.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-divider"><span class="section-tag">Contact</span></div>
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="section-sub">If you're ready to improve your marketing and sales, reach out today. I'll get back to you fast.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <h3 class="contact-info-title">Get In Touch</h3>
+        <p class="contact-info-text">Ready to see what the right words can do for your business? Drop me a message — no fluff, just straight to the point.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉</div>
+          <div><a href="mailto:amirscripts@gmail.com">amirscripts@gmail.com</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📸</div>
+          <div>Instagram: <a href="https://instagram.com/elghalmiamir" target="_blank">@elghalmiamir</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">⚡</div>
+          <div>Response time: Within 24 hours</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🔥</div>
+          <div>Also available on <a href="https://www.fiverr.com" target="_blank">Fiverr</a></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="fname">First Name *</label>
+              <input type="text" id="fname" name="fname" class="form-input" placeholder="Your name" required>
+              <span class="form-error" id="fnameErr">Please enter your name.</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email *</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+              <span class="form-error" id="emailErr">Please enter a valid email.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="brand">Brand / Business Name</label>
+            <input type="text" id="brand" name="brand" class="form-input" placeholder="Your brand name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="service">Service Interested In *</label>
+            <select id="service" name="service" class="form-select form-input" required>
+              <option value="" disabled selected>Select a package</option>
+              <option value="starter">Starter Package — $20 (1 Email)</option>
+              <option value="growth">Growth Package — $50 (3 Emails)</option>
+              <option value="custom">Custom / Other</option>
+            </select>
+            <span class="form-error" id="serviceErr">Please select a service.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Tell Me About Your Project *</label>
+            <textarea id="message" name="message" class="form-textarea" placeholder="Your brand, target audience, what you need…" required></textarea>
+            <span class="form-error" id="messageErr">Please tell me about your project.</span>
+          </div>
+          <button type="submit" class="btn-primary form-submit">Send Message →</button>
+          <div class="form-success" id="formSuccess">
+            ✓ Message sent! I'll get back to you within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#" class="footer-logo">Amir<span>Scripts</span></a>
+      <p class="footer-email">amirscripts@gmail.com</p>
+    </div>
+    <div class="footer-socials">
+      <a href="https://instagram.com/elghalmiamir" target="_blank" class="social-link" title="Instagram">IG</a>
+      <a href="#" class="social-link" title="TikTok (Coming Soon)">TT</a>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 AmirScripts. All rights reserved. — Persuasive email copy for brands that mean business.</p>
+  </div>
+</footer>
+
+<script>
+  // ——— NAV HAMBURGER ———
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  // Close nav on link click (mobile)
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // ——— FAQ ACCORDION ———
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ——— SCROLL REVEAL ———
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ——— CONTACT FORM ———
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valid = true;
+
+    const fname = document.getElementById('fname');
+    const email = document.getElementById('email');
+    const service = document.getElementById('service');
+    const message = document.getElementById('message');
+
+    // Reset errors
+    document.querySelectorAll('.form-error').forEach(el => el.style.display = 'none');
+
+    if (!fname.value.trim()) {
+      document.getElementById('fnameErr').style.display = 'block';
+      valid = false;
+    }
+    if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      document.getElementById('emailErr').style.display = 'block';
+      valid = false;
+    }
+    if (!service.value) {
+      document.getElementById('serviceErr').style.display = 'block';
+      valid = false;
+    }
+    if (!message.value.trim()) {
+      document.getElementById('messageErr').style.display = 'block';
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // Build mailto link
+    const subject = encodeURIComponent(`AmirScripts Inquiry — ${document.getElementById('service').options[service.selectedIndex].text}`);
+    const body = encodeURIComponent(
+      `Name: ${fname.value}\nEmail: ${email.value}\nBrand: ${document.getElementById('brand').value || 'Not provided'}\nService: ${document.getElementById('service').options[service.selectedIndex].text}\n\nMessage:\n${message.value}`
+    );
+    window.location.href = `mailto:amirscripts@gmail.com?subject=${subject}&body=${body}`;
+
+    document.getElementById('formSuccess').style.display = 'block';
+    form.reset();
+    setTimeout(() => {
+      document.getElementById('formSuccess').style.display = 'none';
+    }, 5000);
+  });
+</script>
+</body>
+</html>
